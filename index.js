@@ -1,6 +1,6 @@
 import { GraphQLServer } from "graphql-yoga";
 import resolvers from "./graphql/resolvers";
-import { resolve } from "dns";
+
 
 const server = new GraphQLServer({
     typeDefs: "graphql/schema.graphql" ,   

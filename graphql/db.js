@@ -6,7 +6,7 @@ const MOVIE_DETAILS_URL = `${BASE_URL}movie_details.json?`;
 const MOVIE_SUGGESTIONS_URL = `${BASE_URL}movie_suggestions.json?`;
 
 
-export const getMovies = async (limit, rating) => {
+export const getMovies = async (limit, rating, sort_by) => {
     const{
         data:{
             data: {movies}
@@ -14,30 +14,31 @@ export const getMovies = async (limit, rating) => {
     } = await axios(LIST_MOVIES_URL,{
         params: {
             limit, 
-            minimum_rating: rating
+            minimum_rating: rating,
+            sort_by: sort_by 
         }
     });
     return movies;
 };
 
 
-export const getMovie = async (id) => {
+export const getMovieDetails = async (id) => {
     const {
         data: {
             data: { movie }
         }
     } = await axios(MOVIE_DETAILS_URL, {
         params: {
-            movie_id: id
+            movie_id: id 
         }
     });
-    return movie;
+    return movie; 
 };
 
 
 export const getSuggestions = async ( id ) => {
-    console.log(MOVIE_SUGGESTIONS_URL);
-    console.log("id :"+ id);
+    //console.log(MOVIE_SUGGESTIONS_URL);
+    //console.log("id :"+ id);
     const {
         data: {
             data: { movies }  
